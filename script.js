@@ -764,6 +764,8 @@ function showModal(title, content) {
   const modalTitle = modalOverlay.querySelector(".modal-title");
   const modalContent = modalOverlay.querySelector(".modal-content");
 
+  modalTitle.textContent = title;
+
   // Extract variables from content
   const variables = extractVariables(content);
 
@@ -793,7 +795,6 @@ function showModal(title, content) {
     // Insert variable container before content
     modalContent.parentElement.insertBefore(variableContainer, modalContent);
   } else {
-    modalTitle.textContent = title;
     modalContent.textContent = content;
   }
 
