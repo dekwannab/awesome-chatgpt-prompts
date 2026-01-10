@@ -764,6 +764,13 @@ function showModal(title, content) {
   const modalTitle = modalOverlay.querySelector(".modal-title");
   const modalContent = modalOverlay.querySelector(".modal-content");
 
+  if (!modalTitle || !modalContent) return;
+
+  const existingVariableContainer = modalOverlay.querySelector(".variable-container");
+  if (existingVariableContainer) {
+    existingVariableContainer.remove();
+  }
+
   modalTitle.textContent = title;
 
   // Extract variables from content
@@ -801,8 +808,6 @@ function showModal(title, content) {
   const modalCopyButton = modalOverlay.querySelector(".modal-copy-button");
   const modalContributor = modalOverlay.querySelector(".modal-contributor");
   const modalChatButton = modalOverlay.querySelector(".modal-chat-button");
-
-  if (!modalTitle || !modalContent) return;
 
   // Update chat button text with platform name and handle visibility
   const platform = document.querySelector(".platform-tag.active");
